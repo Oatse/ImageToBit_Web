@@ -132,12 +132,12 @@ export default function RgbTable({ data, imageWidth }: RgbTableProps) {
       {/* Virtual Table */}
       <div
         ref={parentRef}
-        className="h-[500px] overflow-auto border border-gray-300 dark:border-gray-600 rounded-lg"
+        className="h-[500px] overflow-auto border border-gray-300 dark:border-gray-600 rounded-lg relative"
       >
         <div
           style={{
             height: `${rowVirtualizer.getTotalSize()}px`,
-            width: "100%",
+            width: tableFormat === "matrix" ? "max-content" : "100%",
             position: "relative",
           }}
         >
@@ -219,9 +219,9 @@ export default function RgbTable({ data, imageWidth }: RgbTableProps) {
           ) : (
             <>
               {/* Matrix Format Table Header */}
-              <div className="sticky top-0 z-10 bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600 overflow-x-auto">
+              <div className="sticky top-0 left-0 z-20 bg-gray-100 dark:bg-gray-700 border-b-2 border-gray-300 dark:border-gray-600">
                 <div className="flex font-semibold text-gray-900 dark:text-white min-w-max">
-                  <div className="w-16 px-2 py-3 text-center border-r border-gray-300 dark:border-gray-600 shrink-0">
+                  <div className="sticky left-0 z-30 w-16 px-2 py-3 text-center border-r border-gray-300 dark:border-gray-600 shrink-0 bg-gray-100 dark:bg-gray-700">
                     Y \ X
                   </div>
                   {Array.from({ length: imageWidth }, (_, i) => (
@@ -250,8 +250,8 @@ export default function RgbTable({ data, imageWidth }: RgbTableProps) {
                       transform: `translateY(${virtualRow.start}px)`,
                     }}
                   >
-                    <div className="flex h-full items-center border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-750 text-gray-900 dark:text-white overflow-x-auto min-w-max">
-                      <div className="w-16 px-2 py-2 text-center border-r border-gray-200 dark:border-gray-700 font-semibold shrink-0">
+                    <div className="flex h-full items-center border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-750 text-gray-900 dark:text-white min-w-max group">
+                      <div className="sticky left-0 z-10 w-16 px-2 py-2 text-center border-r border-gray-200 dark:border-gray-700 font-semibold shrink-0 bg-white dark:bg-gray-800 group-hover:bg-gray-50 dark:group-hover:bg-gray-750">
                         {y}
                       </div>
                       {Array.from({ length: imageWidth }, (_, x) => {

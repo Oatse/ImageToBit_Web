@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import ImageUploader from "@/components/ImageUploader";
 import ImageViewer from "@/components/ImageViewer";
 import PixelTooltip from "@/components/PixelTooltip";
@@ -63,11 +63,11 @@ export default function Home() {
     setImageUrl(url);
   };
 
-  const handleImageLoad = (width: number, height: number) => {
+  const handleImageLoad = useCallback((width: number, height: number) => {
     setImageDimensions({ width, height });
-  };
+  }, []);
 
-  const handleImageClick = (imageData: ImageData) => {
+  const handleImageClick = useCallback((imageData: ImageData) => {
     setIsProcessing(true);
     setShowTable(false);
 
@@ -90,11 +90,11 @@ export default function Home() {
 
     // Send image data to worker
     workerRef.current.postMessage({ imageData });
-  };
+  }, []);
 
-  const handlePixelHover = (data: TooltipData) => {
+  const handlePixelHover = useCallback((data: TooltipData) => {
     setTooltipData(data);
-  };
+  }, []);
 
   const handleExportCSV = () => {
     if (pixelData.length === 0) return;
@@ -123,7 +123,7 @@ export default function Home() {
   };
 
   // Cleanup on unmount
-  useState(() => {
+  useEffect(() => {
     return () => {
       if (workerRef.current) {
         workerRef.current.terminate();
@@ -132,7 +132,7 @@ export default function Home() {
         URL.revokeObjectURL(imageUrl);
       }
     };
-  });
+  }, [imageUrl]);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 p-4 md:p-8">

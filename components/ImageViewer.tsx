@@ -167,13 +167,13 @@ export default function ImageViewer({
         )}
       </div>
 
-      <div className="relative overflow-auto max-h-[600px] border-2 border-gray-200 dark:border-gray-700 rounded-lg">
+      <div className="relative overflow-auto max-h-[600px] border-2 border-gray-200 dark:border-gray-700 rounded-lg flex justify-center items-center">
         <canvas
           ref={canvasRef}
           onMouseMove={handleMouseMove}
           onMouseLeave={handleMouseLeave}
           onClick={handleClick}
-          className={`max-w-full h-auto ${
+          className={`max-w-full h-auto mx-auto ${
             isProcessing ? "cursor-wait opacity-50" : "cursor-crosshair"
           }`}
         />
