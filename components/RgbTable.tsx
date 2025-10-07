@@ -185,26 +185,26 @@ export default function RgbTable({ data, imageWidth }: RgbTableProps) {
                       transform: `translateY(${virtualRow.start}px)`,
                     }}
                   >
-                    <div className="flex h-full items-center border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-750 text-gray-900 dark:text-white">
-                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700">
+                    <div className="flex h-full items-center border-b border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white">
+                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-150">
                         {pixel.x}
                       </div>
-                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700">
+                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-150">
                         {pixel.y}
                       </div>
-                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700">
+                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-150">
                         {pixel.r}
                       </div>
-                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700">
+                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-150">
                         {pixel.g}
                       </div>
-                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700">
+                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-150">
                         {pixel.b}
                       </div>
-                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700 font-mono">
+                      <div className="flex-1 px-4 py-2 text-center border-r border-gray-200 dark:border-gray-700 font-mono hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-150">
                         {pixel.hex}
                       </div>
-                      <div className="flex-1 px-4 py-2 flex justify-center">
+                      <div className="flex-1 px-4 py-2 flex justify-center hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-150">
                         <div
                           className="w-8 h-8 rounded border border-gray-300 dark:border-gray-600 shadow-sm"
                           style={{ backgroundColor: pixel.hex }}
@@ -250,8 +250,8 @@ export default function RgbTable({ data, imageWidth }: RgbTableProps) {
                       transform: `translateY(${virtualRow.start}px)`,
                     }}
                   >
-                    <div className="flex h-full items-center border-b border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-750 text-gray-900 dark:text-white min-w-max group">
-                      <div className="sticky left-0 z-10 w-16 px-2 py-2 text-center border-r border-gray-200 dark:border-gray-700 font-semibold shrink-0 bg-white dark:bg-gray-800 group-hover:bg-gray-50 dark:group-hover:bg-gray-750">
+                    <div className="flex h-full items-center border-b border-gray-200 dark:border-gray-700 text-gray-900 dark:text-white min-w-max">
+                      <div className="sticky left-0 z-10 w-16 px-2 py-2 text-center border-r border-gray-200 dark:border-gray-700 font-semibold shrink-0 bg-white dark:bg-gray-800 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-150">
                         {y}
                       </div>
                       {Array.from({ length: imageWidth }, (_, x) => {
@@ -259,7 +259,7 @@ export default function RgbTable({ data, imageWidth }: RgbTableProps) {
                         return (
                           <div
                             key={x}
-                            className="w-32 px-2 py-2 text-center border-r border-gray-200 dark:border-gray-700 font-mono text-xs shrink-0"
+                            className="w-32 px-2 py-2 text-center border-r border-gray-200 dark:border-gray-700 font-mono text-xs shrink-0 hover:bg-blue-100 dark:hover:bg-blue-900 transition-colors duration-150"
                             title={pixel ? `(${pixel.r}, ${pixel.g}, ${pixel.b})` : ""}
                           >
                             {pixel ? `(${pixel.r},${pixel.g},${pixel.b})` : "-"}
